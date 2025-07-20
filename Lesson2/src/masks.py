@@ -1,7 +1,6 @@
 def get_mask_card_number(user_card: str) -> str:
     """Функция маски номера карты пользователя"""
-    card_mask = ""
-    card_mask += user_card[0:4] + " " + user_card[4:6] + "** **** " + user_card[12:16]
+    card_mask = user_card[0:4] + " " + user_card[4:6] + "** **** " + user_card[12:16]
     return card_mask
 
 

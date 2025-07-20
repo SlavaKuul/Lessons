@@ -1,5 +1,6 @@
 import masks
 
+
 def mask_account_card(type_and_number: str) -> str:
     """Функция маски номера карты или номера счёта пользователя"""
     input_split = type_and_number.split()
@@ -8,5 +9,8 @@ def mask_account_card(type_and_number: str) -> str:
     else:
         return (f"{' '.join(input_split[:-1])} {masks.get_mask_account(input_split[-1])}")
 
-print(mask_account_card("Счёт 73654108430135874305"))
-print(mask_account_card("Visa Platinum 7000792289606361"))
+
+def get_date(date: str) -> str:
+    """Функция формата даты"""
+    splited_date = date.split(sep='-', maxsplit=4)
+    return (f"{splited_date[2][:2]}.{splited_date[1]}.{splited_date[0]}")
