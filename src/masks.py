@@ -7,8 +7,6 @@ def get_mask_card_number(user_card: str) -> str:
     return 'Error card number'
 
 
-print(get_mask_card_number('Visa Platinum 7000792289606361'))
-
 def get_mask_account(user_account: str) -> str:
     """Функция маски номера счёта пользователя"""
     if isinstance(user_account, str):
