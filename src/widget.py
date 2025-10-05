@@ -14,6 +14,7 @@ def mask_account_card(type_and_number: str) -> str:
         return 'Error type'
     return 'Error input'
 
+
 def get_date(date: str) -> str:
     """Функция формата даты"""
     if isinstance(date, str):
