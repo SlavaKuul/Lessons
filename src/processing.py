@@ -1,4 +1,7 @@
-def filter_by_state(date_list: list[dict[str, any]], state: str = 'EXECUTED') -> list[dict[str, any]]:
+from typing import Any
+
+
+def filter_by_state(date_list: list[dict[str, Any]], state: str = 'EXECUTED') -> list[dict[str, Any]]:
     """Функция фильтрации списка по статусу"""
     filtered_list = []
     for current_id in date_list:
@@ -8,10 +11,15 @@ def filter_by_state(date_list: list[dict[str, any]], state: str = 'EXECUTED') ->
     return filtered_list
 
 
-def sort_by_date(date_list: list[dict[str, any]], sort_order: str = 'True') -> list[dict[str, any]]:
+def sort_by_date(date_list: list[dict[str, Any]], sort_order: str = 'True') -> list[dict[str, Any]]:
     """Функция сортировки списка по дате"""
+    checked_list = []
+    for item in date_list:
+        if isinstance(item.get('date'), str):
+            if len(str(item.get('date'))) == 26:
+                checked_list.append(item)
     if sort_order == 'True':
-        sorted_list = sorted(date_list, key=lambda x: x['date'], reverse = True)
+        sorted_list = sorted(checked_list, key=lambda x: x['date'], reverse=True)
     else:
-        sorted_list = sorted(date_list, key=lambda x: x['date'])
+        sorted_list = sorted(checked_list, key=lambda x: x['date'])
     return sorted_list
